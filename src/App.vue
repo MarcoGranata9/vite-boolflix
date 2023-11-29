@@ -2,6 +2,7 @@
 import axios from "axios";
 import {store} from "./store.js";
 import AppHeader from "./components/AppHeader.vue";
+import AppMovieList from "./components/AppMovieList.vue";
 
 export default {
   data() {
@@ -11,17 +12,26 @@ export default {
   },
   components: {
     AppHeader,
-  },
+    AppMovieList
+},
   methods: {
     searchFunction() {
-      
+      const params = {
+        query: this.store.searchText,
+        api_key: "4708719173a71e27c7f623cc1914df87"
+      };
+      axios.get(this.store.apiUrl, {params}).then((resp) =>{
+        this.store.movieArray = resp.data.results
+        console.log(this.store.movieArray);
+      })
     }
   },
 }
 </script>
 
 <template>
-  <AppHeader @searchText="searchFunction"/>  
+  <AppHeader @searchText="searchFunction"/>
+  <AppMovieList/>  
 </template>
 
 <style lang="scss">

@@ -12,7 +12,7 @@ export default {
 <template>
     <header>
         <h1>BOOLFLIX</h1>
-        <input type="text" v-model="store.searchText">
+        <input type="text" v-model.trim="store.searchText">
         <button @click="$emit('searchText')">Cerca</button>
     </header>    
 </template>
