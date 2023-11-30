@@ -48,6 +48,7 @@ main {
     background-color: rgb(50, 50, 50);
     overflow: auto;
     height: calc(100% - 80px);
+
     .container {
         width: 85%;
         max-width: 1500px;

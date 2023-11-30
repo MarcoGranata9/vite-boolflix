@@ -16,24 +16,36 @@ export default {
   },
   methods: {
     searchFunction() {
-      this.store.noResult = false
 
       const params = {
         query: this.store.searchText,
         api_key: "4708719173a71e27c7f623cc1914df87"
       };
+      // Chiamata Film
       axios.get(`${this.store.apiUrl}/search/movie`, {params}).then((resp) =>{
         this.store.movieArray = resp.data.results
+        
+        // Chiamata Attori
+        for (let i = 0; i < this.store.movieArray.length; i++) {
+          axios.get(`${this.store.apiUrl}/movie/${this.store.movieArray[i].id}/credits`, {params}).then((resp) => {
+            const castArray = resp.data.cast.slice(0, 5)
+            this.store.movieActors.push(castArray)
+            console.log(this.store.movieActors);
+          })        
+        }
+        
         this.store.noResultmovie = false
+
         if (this.store.movieArray.length === 0) {
-        return this.store.noResultmovie = true 
+          return this.store.noResultmovie = true 
         }
       })
+      // Chiamata Serie
       axios.get(`${this.store.apiUrl}/search/tv`, {params}).then((resp) => {
         this.store.serieArray = resp.data.results
         this.store.noResultserie = false
         if (this.store.serieArray.length === 0) {
-        return this.store.noResultserie = true 
+          return this.store.noResultserie = true 
         }
       })
     }
