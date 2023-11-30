@@ -1,6 +1,6 @@
 <script>
 import { store } from '../store';
-import Card from './Card.vue';
+import MainCard from './MainCard.vue';
 export default {
     data() {
         return {
@@ -11,29 +11,63 @@ export default {
     methods: {
 
     },
-    components: { Card }
+    components: { MainCard }
 }
 </script>
 
 <template>
-    <section>
-        <h2>Film</h2>
-        <ul>
-            <li v-for="movie in store.movieArray" :key="movie.id">
-                <Card :movieObj="movie"/>
-            </li>
-            <li>ciao</li>
-        </ul>        
-    </section>
-    <section>
-        <h2>Serie TV</h2>
-        <ul>
-            <li v-for="serie in store.serieArray" :key="serie.id">
-                <Card :movieObj="serie"/>
-            </li>
-        </ul>
-    </section>
+    <main>
+        <section>
+            <div class="container">
+                <h2>Film</h2>
+                <ul>
+                    <li v-for="movie in store.movieArray" :key="movie.id">
+                        <MainCard :movieObj="movie"/>
+                    </li>
+                </ul>        
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Serie TV</h2>
+                <ul>
+                    <li v-for="serie in store.serieArray" :key="serie.id">
+                        <MainCard :movieObj="serie"/>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
 </template>
 
 <style lang="scss" scoped>
+main {
+    background-color: rgb(50, 50, 50);
+    overflow: auto;
+    height: calc(100% - 80px);
+    .container {
+        width: 85%;
+        max-width: 1500px;
+    }
+
+    h2 {
+        color: red;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+        align-items: center;
+        list-style-type: none;
+        li {
+            width: calc(100% / 4);   
+        }
+
+        
+    }
+}
 </style>
