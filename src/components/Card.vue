@@ -33,8 +33,12 @@ export default {
     <img v-if="hasFlag" :src="getImgUrl(movieObj.original_language)" :alt="movieObj.original_language">
     <p v-else>{{ movieObj.original_language }}</p>
     <p>{{ movieObj.vote_average }}</p>
+    <img v-if="movieObj.poster_path" :src="`https://image.tmdb.org/t/p/w342${movieObj.poster_path}`" alt="">
+    <img  v-else class="no-img" src="https://st4.depositphotos.com/14953852/22772/v/450/depositphotos_227724992-stock-illustration-image-available-icon-flat-vector.jpg" alt="">
 </template>
 
 <style scoped lang="scss">
-
+.no-img {
+    width: 342px;
+}
 </style>
