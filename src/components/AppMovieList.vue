@@ -1,41 +1,35 @@
 <script>
 import { store } from '../store';
+import Card from './Card.vue';
 export default {
     data() {
         return {
             store,
-        }
+            itLangImg: "it.png"
+        };
     },
     methods: {
-        getFlag(index) {
-            let language = this.store.movieArray[index].original_language;
-            if (language === "it") {
-                return "https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/220px-Flag_of_Italy.svg.png"   
-            } else {
-                return language
-            }
-        }
-    }
+
+    },
+    components: { Card }
 }
 </script>
 
 <template>
     <section>
+        <h2>Film</h2>
         <ul>
-            <li v-for="(movie, index) in this.store.movieArray" :key="movie.id">
-                <span>{{ movie.title }}</span> 
-                <span>{{ movie.original_title }}</span>
-                <img :src="getFlag(index)" alt="">
-                <span>{{ getFlag(index) }}</span>
-                <span>{{ movie.vote_average }}</span>
+            <li v-for="(movie, index) in store.movieArray" :key="movie.id">
+                <Card :movieObj="movie"/>
             </li>
             <li>ciao</li>
         </ul>        
     </section>
+    <section>
+        <h2>Serie TV</h2>
+        
+    </section>
 </template>
 
 <style lang="scss" scoped>
-    img {
-        width: 50px;
-    }
 </style>

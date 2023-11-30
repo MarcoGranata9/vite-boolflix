@@ -5,14 +5,16 @@ export default {
         return {
             store,
         }
-    }
+    },
+    emits: ["searchText"],
 }
 </script>
 
 <template>
     <header>
         <h1>BOOLFLIX</h1>
-        <input type="text" v-model.trim="store.searchText">
+        <label for="search">Cerca:</label>
+        <input id="search" type="search" v-model.trim="store.searchText">
         <button @click="$emit('searchText')">Cerca</button>
     </header>    
 </template>
