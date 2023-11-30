@@ -2,7 +2,7 @@
 import axios from "axios";
 import {store} from "./store.js";
 import AppHeader from "./components/AppHeader.vue";
-import AppMovieList from "./components/AppMovieList.vue";
+import AppMain from "./components/AppMain.vue";
 
 export default {
   data() {
@@ -12,7 +12,7 @@ export default {
   },
   components: {
     AppHeader,
-    AppMovieList
+    AppMain
   },
   methods: {
     searchFunction() {
@@ -34,7 +34,7 @@ export default {
 
 <template>
   <AppHeader @searchText="searchFunction"/>
-  <AppMovieList/>  
+  <AppMain/>  
 </template>
 
 <style lang="scss">

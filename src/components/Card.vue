@@ -13,7 +13,7 @@ export default {
            const roundedVote = Math.round(this.movieObj.vote_average);
            const vote = roundedVote / 2;
            return Math.floor(vote)
-        }
+        },
     },
     props: {
         movieObj: Object         
@@ -37,7 +37,6 @@ export default {
     <h3>{{ getOriginalTitle }}</h3>
     <img v-if="hasFlag" :src="getImgUrl(movieObj.original_language)" :alt="movieObj.original_language">
     <p v-else>{{ movieObj.original_language }}</p>
-    <p>{{ handleVote() }}</p>
     <p>
         <i :class="handleVote() >= 1 ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
         <i :class="handleVote() >= 2 ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
