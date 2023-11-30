@@ -8,6 +8,11 @@ export default {
     methods: {
         getImgUrl(lang) {
             return new URL(`../assets/img/${lang}.png`, import.meta.url).href            
+        },
+        handleVote() {
+           const roundedVote = Math.round(this.movieObj.vote_average);
+           const vote = roundedVote / 2;
+           return Math.floor(vote)
         }
     },
     props: {
@@ -32,7 +37,14 @@ export default {
     <h3>{{ getOriginalTitle }}</h3>
     <img v-if="hasFlag" :src="getImgUrl(movieObj.original_language)" :alt="movieObj.original_language">
     <p v-else>{{ movieObj.original_language }}</p>
-    <p>{{ movieObj.vote_average }}</p>
+    <p>{{ handleVote() }}</p>
+    <p>
+        <i :class="handleVote() >= 1 ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
+        <i :class="handleVote() >= 2 ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
+        <i :class="handleVote() >= 3 ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
+        <i :class="handleVote() >= 4 ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
+        <i :class="handleVote() >= 5 ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
+    </p>
     <img v-if="movieObj.poster_path" :src="`https://image.tmdb.org/t/p/w342${movieObj.poster_path}`" alt="">
     <img  v-else class="no-img" src="https://st4.depositphotos.com/14953852/22772/v/450/depositphotos_227724992-stock-illustration-image-available-icon-flat-vector.jpg" alt="">
 </template>
