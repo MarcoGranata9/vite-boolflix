@@ -20,6 +20,7 @@ export default {
         <section>
             <div class="container">
                 <h2>Film</h2>
+                <h2 v-if="store.noResultmovie">Nessun Risultato</h2>
                 <ul>
                     <li v-for="movie in store.movieArray" :key="movie.id">
                         <MainCard :movieObj="movie"/>
@@ -31,6 +32,7 @@ export default {
         <section>
             <div class="container">
                 <h2>Serie TV</h2>
+                <h2 v-if="store.noResultserie">Nessun Risultato</h2>
                 <ul>
                     <li v-for="serie in store.serieArray" :key="serie.id">
                         <MainCard :movieObj="serie"/>
