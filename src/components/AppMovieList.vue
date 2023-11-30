@@ -19,7 +19,7 @@ export default {
     <section>
         <h2>Film</h2>
         <ul>
-            <li v-for="(movie, index) in store.movieArray" :key="movie.id">
+            <li v-for="movie in store.movieArray" :key="movie.id">
                 <Card :movieObj="movie"/>
             </li>
             <li>ciao</li>
@@ -27,7 +27,11 @@ export default {
     </section>
     <section>
         <h2>Serie TV</h2>
-        
+        <ul>
+            <li v-for="serie in store.serieArray" :key="serie.id">
+                <Card :movieObj="serie"/>
+            </li>
+        </ul>
     </section>
 </template>
 

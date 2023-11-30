@@ -22,7 +22,10 @@ export default {
       };
       axios.get(`${this.store.apiUrl}/search/movie`, {params}).then((resp) =>{
         this.store.movieArray = resp.data.results
-        console.log(this.store.movieArray);
+      })
+      axios.get(`${this.store.apiUrl}/search/tv`, {params}).then((resp) => {
+        this.store.serieArray = resp.data.results
+        console.log(this.store.serieArray);
       })
     }
   },
