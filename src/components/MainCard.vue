@@ -79,7 +79,8 @@ span {
         display: none;
         position: absolute;
         top: 0px;
-        left: 0px;
+        left: 50%;
+        transform: translateX(-50%);
         color: white;
         padding: 1rem;
         height: 500px;
@@ -93,9 +94,19 @@ span {
             justify-content: center;
             align-items: center;
         }
+
+        i {
+            color: gold;
+        }
     }
     &:hover .card-data {
         display: block;
+    }
+
+    .card-img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
 

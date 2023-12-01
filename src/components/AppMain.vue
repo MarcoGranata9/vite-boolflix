@@ -63,11 +63,14 @@ main {
     ul{
         display: flex;
         flex-wrap: wrap;
-        justify-content: start;
+        justify-content: center;
         align-items: center;
         list-style-type: none;
         li {
-            width: calc(100% / 4);   
+            width: calc(100% / 4);
+            @media screen and (max-width: 1650px) {
+                width: calc(100% / 3);
+            }   
         }
 
         

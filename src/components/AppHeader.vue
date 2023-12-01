@@ -19,8 +19,8 @@ export default {
                 </div>
                 <div class="search">
                     <label for="search">Cerca un film/serieTV</label>
-                    <input id="search" type="search" v-model.trim="store.searchText">
-                    <button @click="$emit('searchText')"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input @keyup.enter="$emit('searchText')" id="search" type="search" v-model.trim="store.searchText">
+                    <button @click="$emit('searchText')" ><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
             </div>
         </div>
