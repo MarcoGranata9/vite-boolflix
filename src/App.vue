@@ -32,7 +32,11 @@ export default {
             this.store.movieArray[i].cast = castArray
           })       
         }
-        console.log(this.store.movieArray);
+
+        // Chimata Generi
+        axios.get(`${this.store.apiUrl}/genre/movie/list`, {params}).then((resp)=> {
+          this.store.movieArray     
+        })
         
         this.store.noResultmovie = false
 
@@ -43,6 +47,20 @@ export default {
       // Chiamata Serie
       axios.get(`${this.store.apiUrl}/search/tv`, {params}).then((resp) => {
         this.store.serieArray = resp.data.results
+
+        // Chiamata Attori
+        for (let i = 0; i < this.store.serieArray.length; i++) {
+          axios.get(`${this.store.apiUrl}/movie/${this.store.serieArray[i].id}/credits`, {params}).then((resp) => {
+            console.log(resp.data.success);
+            if (resp.data.success === false) {
+              this.store.serieArray[i].cast = ["Nessun Risultato"]
+            } else {
+              const castArray = resp.data.cast.slice(0, 5)
+              this.store.serieArray[i].cast = castArray
+            }
+          })       
+        }
+
         this.store.noResultserie = false
         if (this.store.serieArray.length === 0) {
           return this.store.noResultserie = true 
