@@ -17,7 +17,7 @@ export default {
 
 <template>
     <main>
-        <section>
+        <section class="movies">
             <div class="container">
                 <h2 v-if="store.movieArray.length === 0 && store.serieArray.length === 0">Cerca un Film o una Serie TV!</h2>
                 <h2 v-if="store.movieArray.length > 0 || store.noResultmovie">Film</h2>
@@ -30,7 +30,7 @@ export default {
             </div>
         </section>
 
-        <section>
+        <section class="tv-series">
             <div class="container">
                 <h2 v-if="store.serieArray.length > 0 || store.noResultserie">Serie TV</h2>
                 <h2 v-if="store.noResultserie">Nessun Risultato</h2>
@@ -48,7 +48,7 @@ export default {
 main {
     background-color: rgb(50, 50, 50);
     overflow: auto;
-    height: calc(100% - 80px);
+    height: calc(100% - 92px);
 
     .container {
         width: 85%;

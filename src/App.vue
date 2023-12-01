@@ -35,7 +35,7 @@ export default {
 
         // Chimata Generi
         axios.get(`${this.store.apiUrl}/genre/movie/list`, {params}).then((resp)=> {
-          this.store.movieArray     
+          this.store.movieArrayGenre = resp.data.genres      
         })
         
         this.store.noResultmovie = false
@@ -51,7 +51,6 @@ export default {
         // Chiamata Attori
         for (let i = 0; i < this.store.serieArray.length; i++) {
           axios.get(`${this.store.apiUrl}/movie/${this.store.serieArray[i].id}/credits`, {params}).then((resp) => {
-            console.log(resp.data.success);
             if (resp.data.success === false) {
               this.store.serieArray[i].cast = ["Nessun Risultato"]
             } else {
@@ -66,13 +65,16 @@ export default {
           return this.store.noResultserie = true 
         }
       })
-    }
+    },
+    changeGenre() {
+      
+    },
   },
 }
 </script>
 
 <template>
-  <AppHeader @searchText="searchFunction"/>
+  <AppHeader @searchText="searchFunction" @changedGenre="changeGenre"/>
   <AppMain/>  
 </template>
 

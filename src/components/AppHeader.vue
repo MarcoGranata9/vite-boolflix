@@ -1,4 +1,5 @@
 <script>
+import { vModelSelect } from 'vue';
 import { store } from '../store';
 export default {
     data() {
@@ -6,7 +7,7 @@ export default {
             store,
         }
     },
-    emits: ["searchText"],
+    emits: ['searchText', 'changedGenre'],
 }
 </script>
 
@@ -17,10 +18,18 @@ export default {
                 <div class="logo">
                     <h1>BOOLFLIX</h1>
                 </div>
-                <div class="search">
-                    <label for="search">Cerca un film/serieTV</label>
-                    <input @keyup.enter="$emit('searchText')" placeholder="Cerca" id="search" type="search" v-model.trim="store.searchText">
-                    <button @click="$emit('searchText')" ><i class="fa-solid fa-magnifying-glass"></i></button>
+                <div>
+                    <div class="search">
+                        <label for="search">Cerca un film/serieTV</label>
+                        <input @keyup.enter="$emit('searchText')" placeholder="Cerca" id="search" type="search" v-model.trim="store.searchText">
+                        <button @click="$emit('searchText')" ><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+                    <div class="genre">
+                        <select name="" id="genre" v-model="store.selectedGenre" @change="$emit('changedGenre')">
+                            <option value="none" ></option>
+                            <option v-for="genre in store.movieArrayGenre" :value="genre.id">{{ genre.name }}</option>
+                        </select>
+                    </div>
                 </div>
             </div>
         </div>
@@ -30,7 +39,7 @@ export default {
 <style lang="scss" scoped>
 header {
     background-color: black;
-    height: 80px;
+    height: 92px;
     .wrapper{
         display: flex;
         justify-content: space-between;
