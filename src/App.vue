@@ -29,10 +29,10 @@ export default {
         for (let i = 0; i < this.store.movieArray.length; i++) {
           axios.get(`${this.store.apiUrl}/movie/${this.store.movieArray[i].id}/credits`, {params}).then((resp) => {
             const castArray = resp.data.cast.slice(0, 5)
-            this.store.movieActors.push(castArray)
-            console.log(this.store.movieActors);
-          })        
+            this.store.movieArray[i].cast = castArray
+          })       
         }
+        console.log(this.store.movieArray);
         
         this.store.noResultmovie = false
 

@@ -35,16 +35,16 @@ export default {
 <template>
     <div class="card">
         <div class="card-data">
-            <!-- Titles -->
+            <!-- Titoli -->
             <p><span>Titolo:</span> {{ getTitle }}</p>
             <p><span>Titolo originale:</span> {{ getOriginalTitle }}</p>
-            <!-- Language -->
+            <!-- Lingua -->
             <div class="lang">
                 <span >Lingua:</span>
                 <img  v-if="hasFlag" :src="getImgUrl(movieObj.original_language)" :alt="movieObj.original_language">
                 <p v-else>{{ movieObj.original_language }}</p>
             </div>
-            <!-- Rating -->
+            <!-- Voto -->
             <p>
                 <span>Voto:</span>
 
@@ -58,6 +58,10 @@ export default {
                 <!-- Soluzione ottimizzata -->
                 <i v-for="num in 5" :class="num <= handleVote() ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
             </p>
+            <!-- Cast -->
+            <div>
+                
+            </div>
         </div>
         <!-- Movie Img -->
         <div class="card-img">
