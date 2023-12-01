@@ -60,7 +60,8 @@ export default {
             </p>
             <!-- Cast -->
             <div>
-                
+                <span>Cast:</span>
+                <p v-for="actor in movieObj.cast">{{ actor.name }}</p>
             </div>
         </div>
         <!-- Movie Img -->
