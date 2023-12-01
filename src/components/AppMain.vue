@@ -23,8 +23,8 @@ export default {
                 <h2 v-if="store.movieArray.length > 0 || store.noResultmovie">Film</h2>
                 <h2 v-if="store.noResultmovie">Nessun Risultato</h2>
                 <ul>
-                    <li v-for="movie in store.movieArray" :key="movie.id">
-                        <MainCard :movieObj="movie"/>
+                    <li  v-for="movie in store.movieArray" :key="movie.id" v-show="movie.show">
+                        <MainCard  :movieObj="movie"/>
                     </li>
                 </ul>        
             </div>

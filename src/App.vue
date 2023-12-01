@@ -31,9 +31,13 @@ export default {
             const castArray = resp.data.cast.slice(0, 5)
             this.store.movieArray[i].cast = castArray
           })       
-        }
+        }      
+        // Reset Generi
+        this.store.movieArray.forEach(obj => {
+          obj.show = true
+        });
 
-        // Chimata Generi
+        // Chimata Generi film
         axios.get(`${this.store.apiUrl}/genre/movie/list`, {params}).then((resp)=> {
           this.store.movieArrayGenre = resp.data.genres      
         })
@@ -67,8 +71,16 @@ export default {
       })
     },
     changeGenre() {
-      
-    },
+      for (let i = 0; i < this.store.movieArray.length; i++) {
+          if (this.store.movieArray[i].genre_ids.includes(this.store.selectedGenre)) {
+            this.store.movieArray[i].show = true
+          } else if (this.store.selectedGenre === "none") {
+            this.store.movieArray[i].show = true
+          } else {
+            this.store.movieArray[i].show = false
+          }
+        }
+      },
   },
 }
 </script>
