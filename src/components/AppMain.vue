@@ -19,7 +19,8 @@ export default {
     <main>
         <section>
             <div class="container">
-                <h2>Film</h2>
+                <h2 v-if="store.movieArray.length === 0 && store.serieArray.length === 0">Cerca un Film o una Serie TV!</h2>
+                <h2 v-if="store.movieArray.length > 0 || store.noResultmovie">Film</h2>
                 <h2 v-if="store.noResultmovie">Nessun Risultato</h2>
                 <ul>
                     <li v-for="movie in store.movieArray" :key="movie.id">
@@ -31,7 +32,7 @@ export default {
 
         <section>
             <div class="container">
-                <h2>Serie TV</h2>
+                <h2 v-if="store.serieArray.length > 0 || store.noResultserie">Serie TV</h2>
                 <h2 v-if="store.noResultserie">Nessun Risultato</h2>
                 <ul>
                     <li v-for="serie in store.serieArray" :key="serie.id">

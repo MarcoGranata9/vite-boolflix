@@ -47,11 +47,16 @@ export default {
             <!-- Rating -->
             <p>
                 <span>Voto:</span>
-                <i :class="handleVote() >= 1 ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
+
+                <!-- Soluzione non ottimizzata-->
+                <!-- <i :class="handleVote() >= 1 ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
                 <i :class="handleVote() >= 2 ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
                 <i :class="handleVote() >= 3 ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
                 <i :class="handleVote() >= 4 ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
-                <i :class="handleVote() >= 5 ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
+                <i :class="handleVote() >= 5 ? 'fa-solid' : 'fa-regular'" class="fa-star"></i> -->
+                
+                <!-- Soluzione ottimizzata -->
+                <i v-for="num in 5" :class="num <= handleVote() ? 'fa-solid' : 'fa-regular'" class="fa-star"></i>
             </p>
         </div>
         <!-- Movie Img -->
