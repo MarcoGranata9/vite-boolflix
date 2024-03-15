@@ -35,7 +35,7 @@ export default {
                 <h2 v-if="store.serieArray.length > 0 || store.noResultserie">Serie TV</h2>
                 <h2 v-if="store.noResultserie">Nessun Risultato</h2>
                 <ul>
-                    <li v-for="serie in store.serieArray" :key="serie.id">
+                    <li v-for="serie in store.serieArray" :key="serie.id" v-show="serie.show">
                         <MainCard :movieObj="serie"/>
                     </li>
                 </ul>

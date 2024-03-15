@@ -6,7 +6,7 @@ export default {
             store,
         }
     },
-    emits: ['searchText', 'changedGenre'],
+    emits: ['searchText', 'changedGenre', 'changeSerieGenre'],
 }
 </script>
 
@@ -23,6 +23,13 @@ export default {
                         <select name="genre" id="genre" v-model="store.selectedGenre" @change="$emit('changedGenre')">
                             <option value="none">Mostra tutti</option>
                             <option v-for="genre in store.movieArrayGenre" :value="genre.id">{{ genre.name }}</option>
+                        </select>
+                    </div>
+                    <div class="genre">
+                        <p>Generi Serie:</p>
+                        <select name="serie" id="serie" v-model="store.selectedSerieGenre" @change="$emit('changeSerieGenre')">
+                            <option value="none">Mostra tutti</option>
+                            <option v-for="genre in store.serieArrayGenre" :value="genre.id">{{ genre.name }}</option>
                         </select>
                     </div>
                     <div class="search">

@@ -62,6 +62,16 @@ export default {
           })       
         }
 
+        // Reset Generi
+          this.store.serieArray.forEach(obj => {
+          obj.show = true
+        });
+
+        // Chimata Generi film
+        axios.get(`${this.store.apiUrl}/genre/tv/list`, {params}).then((resp)=> {
+          this.store.serieArrayGenre = resp.data.genres      
+        })
+
         this.store.noResultserie = false
         if (this.store.serieArray.length === 0) {
           return this.store.noResultserie = true 
@@ -79,12 +89,24 @@ export default {
           }
         }
       },
+      changeSerieGenre() {
+        console.log('ciao');
+      for (let i = 0; i < this.store.serieArray.length; i++) {
+          if (this.store.serieArray[i].genre_ids.includes(this.store.selectedSerieGenre)) {
+            this.store.serieArray[i].show = true
+          } else if (this.store.selectedSerieGenre === "none") {
+            this.store.serieArray[i].show = true
+          } else {
+            this.store.serieArray[i].show = false
+          }
+        }
+      },
   },
 }
 </script>
 
 <template>
-  <AppHeader @searchText="searchFunction" @changedGenre="changeGenre"/>
+  <AppHeader @searchText="searchFunction" @changedGenre="changeGenre" @changeSerieGenre="changeSerieGenre" />
   <AppJumbo/>
   <AppMain/>
 </template>

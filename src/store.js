@@ -10,4 +10,5 @@ export const store = reactive({
     noResultmovie: false,
     noResultserie: false,
     selectedGenre: 0,
+    selectedSerieGenre: 0,
 })
