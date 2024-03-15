@@ -1,5 +1,4 @@
 <script>
-import { vModelSelect } from 'vue';
 import { store } from '../store';
 export default {
     data() {
@@ -16,7 +15,7 @@ export default {
         <div class="container">
             <div class="wrapper">
                 <div class="logo">
-                    <h1>BOOLFLIX</h1>
+                    <h1><a href=".">BOOLFLIX</a></h1>
                 </div>
                 <div class="input">
                     <div class="genre">
@@ -28,7 +27,7 @@ export default {
                     </div>
                     <div class="search">
                         <label for="search">Cerca un film/serieTV</label>
-                        <input @keyup.enter="$emit('searchText')" placeholder="Cerca" id="search" type="search" v-model.trim="store.searchText">
+                        <input @keyup.enter="$emit('searchText')" placeholder="Cerca un film o una serie" id="search" type="search" v-model.trim="store.searchText">
                         <button @click="$emit('searchText')" ><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                 </div>
@@ -48,7 +47,10 @@ header {
         padding: 20px 0;
 
         h1 {
-            color: red;
+            a {
+                text-decoration: none; 
+                color: red;
+            }
         }
 
         label {

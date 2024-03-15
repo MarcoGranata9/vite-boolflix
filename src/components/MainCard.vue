@@ -92,7 +92,6 @@ span {
         left: 50%;
         transform: translateX(-50%);
         color: white;
-        padding: 1rem;
         height: 500px;
         width: 342px;
         background-color: rgba($color: #000000, $alpha: 0.7);
