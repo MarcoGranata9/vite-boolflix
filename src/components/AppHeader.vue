@@ -65,6 +65,7 @@ header {
         }
 
         input {
+            font-size: 1rem;
             border-top-left-radius: 1rem;
             border-bottom-left-radius: 1rem;
             border: none;
@@ -81,6 +82,7 @@ header {
         }
 
         button {
+            font-size: 1rem;
             border-top-right-radius: 1rem;
             border-bottom-right-radius: 1rem;
             background-color: rgb(189, 0, 0);
@@ -102,9 +104,11 @@ header {
             }
             p {
                 color: white;
-                margin-right: 1rem;   
+                margin-right: 0.5rem;
+                font-size: 1rem;
             }
             select {
+                font-size: 1rem;
                 padding: 0.5rem;
                 border-radius: 1rem;
                 border: none;
