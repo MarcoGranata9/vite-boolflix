@@ -1,7 +1,15 @@
-# Vue 3 + Vite
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# Boolflix
 
-## Recommended IDE Setup
+Boolflix is a Netflix inspired project. You can search a movie or series through the search bar and filter by genre.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Technologies used
+
+ - Vue.js
+ - TheMovieDB API
+ - Swiper API
+
+## Screenshots
+
+![App Screenshot](./src/assets/img/boolflixh.png)
+![App Screenshot](./src/assets/img/boolflix.png)
